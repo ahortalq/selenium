@@ -1,0 +1,34 @@
+import time
+import unittest
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
+def loginCalculator(driver):
+    driver.get("http://localhost:9080/congruencias/index")
+    time.sleep(1)
+    driver.find_element_by_id("inputEmail").send_keys("jcla")
+    time.sleep(1)
+    driver.find_element_by_id("inputPassword").send_keys("jcla")
+    time.sleep(1)
+    driver.find_element_by_xpath("/html/body/form/button").click()
+    time.sleep(1)
+
+class CalculatorTester(unittest.TestCase):
+    
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        self.wait = WebDriverWait(self.driver, 100)
+        
+    def testLogin(self):
+        loginCalculator(self.driver)
+        self.assertTrue(True)
+
+    def tearDown(self):
+        self.driver.quit()
+
+
+if __name__ == "__main__":
+    unittest.main()
