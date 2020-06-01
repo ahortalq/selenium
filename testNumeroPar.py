@@ -21,9 +21,12 @@ class CalculatorTester(unittest.TestCase):
         
     def testNumeroImpar(self):
         loginCalculator(self.driver)
+        print("Iniciamos los calculos")
         self.driver.find_element_by_xpath("/html/body/form/button").click()
+        print("Facilitamos un numero par")
         self.driver.find_element_by_xpath("/html/body/form/input").send_keys("4")
         time.sleep(1)
+        print("Validamos calculo")
         self.driver.find_element_by_xpath("/html/body/form/button").click()
         time.sleep(1)
         self.assertTrue(True)
