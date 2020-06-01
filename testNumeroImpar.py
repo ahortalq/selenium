@@ -29,7 +29,7 @@ class CalculatorTester(unittest.TestCase):
         print("Validamos calculo")
         self.driver.find_element_by_xpath("/html/body/form/button").click()
         time.sleep(1)
-        self.assertTrue(True)
+        self.assertTrue(False)
 
     def tearDown(self):
         self.driver.quit()
